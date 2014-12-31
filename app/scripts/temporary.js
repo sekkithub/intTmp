@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 $(function() {
@@ -8,3 +9,4 @@ $(function() {
     $('.ramen').css('transform', 'rotate(' + intBg + 'deg)');
   });
 });
+*/

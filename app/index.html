@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" ng-app="ramenGallery">
+<html class="no-js" data-ng-app="ramenGallery">
   <head>
     <meta charset="utf-8">
     <title>RAMEN GALLERY</title>
@@ -20,7 +20,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <span id='scrollValue'>0</span>
+    <div ng-controller="scrollCtrl">
+      <span id='scrollValue'>{{scrollCounter}}</span>
+    </div>
     <div class="container">
       <div class="header">
         <div class="ramen"></div>
@@ -30,11 +32,11 @@
       <div class="shops" ng-controller="galleryCtrl">
         <h2>LINE-UP</h2>
         <ul>
-          <li ng-repeat="gallery in galleries">{{gallery.name}}</li>
+          <li ng-repeat="gallery in galleries" ng-class="{red: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">{{gallery.name}}</li>
         </ul>
       </div>
 
-      <div class="anchorToMap">
+      <div class="anchorToMap" scroll-on-click href="#footer">
         <h3>LONDON RAMEN MAP</h3>
         <span><img src="images/arrow.png" /></span>
       </div>
@@ -43,10 +45,8 @@
         <a href="http://sekkithub.com" target="_blank">SITE BY MASATO SEKI</a>
       </div>
 
-      <div class="footer">
-        <a href="#">
-          <img src="images/logoInvert.png" />
-        </a>
+      <div id="footer">
+        <img src="images/logoInvert.png" />
       </div>
     </div>
 
@@ -96,7 +96,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/temporary.js"></script>
+        <!--         <script src="scripts/temporary.js"></script> -->
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
